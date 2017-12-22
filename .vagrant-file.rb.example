@@ -1,0 +1,7 @@
+# This file allows you to customize the VM for your personal needs, without
+# generating pending commits
+# `cp .vagrant-file.rb.example .vagrant-file.rb`
+
+def customize_linux_vm linux
+  linux.vm.synced_folder 'D:/projects/Rebuild', '/Rebuild', :mount_options => ['fmode=666']
+end

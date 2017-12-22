@@ -25,6 +25,19 @@ You should now see the desktop and be able to login
 * `sudo tar -xzf ~vagrant/xkb.tar.gz`
 * add `setxkbmap de bone` as autostart (type autostart in search)
 
+### Install Virtualbox Guest additions
+
+* `vagrant halt` - power down machine
+* open Virtualbox frontend add CD-ROM storage
+* hit OK
+* `vagrant up`
+* from menu select Devices - `Insert Guest Additions`
+* make sure that the kernel modules are compiled
+* `vagrant halt` - power down machine
+* `vagrant up` - start with new kernel modules
+
+The 3D acceleration and clipboard synchronization should now work properly.
+
 ### Install Clang 5.0
 
 * `wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -`
