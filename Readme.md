@@ -1,3 +1,10 @@
+# Development Ubuntu
+
+This developer setup is based on [Vagrant](https://www.vagrantup.com/).
+I use it on Windows with [Virtualbox](https://www.virtualbox.org/).
+
+It uses the Ubuntu 16.04 (Xenial) base box from [bento](https://app.vagrantup.com/bento/boxes/ubuntu-16.04). The official ubuntu box fails to run properly with Vagrant.
+
 ## Provisioning
 
 ### Install Desktop
@@ -62,46 +69,46 @@ You should now see the desktop and be able to login
 ### Plugins
 
 * Help - About Plugins…
-** enable in "C++"
-*** `ClangCodeModel`
-** disable unused "Version Control"
+  * enable in "C++"
+    * `ClangCodeModel`
+  * disable unused "Version Control"
 
 ### Clang Format
 
 * Options / Beatifier - Tab: General
-** [x] Enable auto format on File Save
-** Tool: Select "ClangFormat"
+  * [x] Enable auto format on File Save
+  * Tool: Select "ClangFormat"
 * Select tab: "Clang Format"
-** Clang Format command: `/usr/lib/llvm-6.0/bin/clang-format`
-** Use predefined style: Select "File"
-** Fallback style: "None"
+  * Clang Format command: `/usr/lib/llvm-6.0/bin/clang-format`
+  * Use predefined style: Select "File"
+  * Fallback style: "None"
 
 ### Add Clang Compilers
 
 * Options / Build & Run - Tab: Compilers - Add - Clang - C
-** Compiler path: `/usr/lib/llvm-5.0/bin/clang`
-** Compiler path: `/usr/lib/llvm-6.0/bin/clang`
+  * Compiler path: `/usr/lib/llvm-5.0/bin/clang`
+  * Compiler path: `/usr/lib/llvm-6.0/bin/clang`
 * Options / Build & Run - Tab: Compilers - Add - Clang - C++
-** Compiler path: `/usr/lib/llvm-5.0/bin/clang++`
-** Compiler path: `/usr/lib/llvm-6.0/bin/clang++`
+  * Compiler path: `/usr/lib/llvm-5.0/bin/clang++`
+  * Compiler path: `/usr/lib/llvm-6.0/bin/clang++`
 * Go to Tab: Kits - Add
-** Name: %{Compiler:Name} - %{Qt:Name}
-** Compiler: C: (Select Clang) C++: (Select Clang)
-** optionally Qt version: …
+  * Name: %{Compiler:Name} - %{Qt:Name}
+  * Compiler: C: (Select Clang) C++: (Select Clang)
+  * optionally Qt version: …
 * Hit "Apply" button to save
 
 ### Add Qt
 
 * Options / Build & Run - Tab: Qt Versions - Add…
-** Browse to path: `/opt/Qt/5.10.0/gcc_64/bin` - select `qmake`
-** Version name: `Qt %{Qt:Version} (gcc_64)`
-** qmake Location: `/opt/Qt/5.10.0/gcc_64/bin/qmake`
+  * Browse to path: `/opt/Qt/5.10.0/gcc_64/bin` - select `qmake`
+  * Version name: `Qt %{Qt:Version} (gcc_64)`
+  * qmake Location: `/opt/Qt/5.10.0/gcc_64/bin/qmake`
 * Hit "Apply" button to save
 
 ### Add GCC kit
 
 * Options / Build & Run - Tab: Kits - Add
-** Name: %{Compiler:Name} - %{Qt:Name}
-** Compiler: C: (Select GCC 5) C++: (Select GCC 5)
-** Qt version: `from last step`
+  * Name: %{Compiler:Name} - %{Qt:Name}
+  * Compiler: C: (Select GCC 5) C++: (Select GCC 5)
+  * Qt version: `from last step`
 * Hit "Apply" button to save
